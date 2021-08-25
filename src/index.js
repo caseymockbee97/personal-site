@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import '@fontsource/roboto';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@material-ui/core'
 
 const theme = createTheme({
@@ -20,9 +20,9 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename="/personal-site">
+      <HashRouter basename="/personal-site">
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
