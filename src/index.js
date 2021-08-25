@@ -20,7 +20,7 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter basename="/personal-site">
         <App />
       </BrowserRouter>
     </ThemeProvider>
