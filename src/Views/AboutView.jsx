@@ -1,15 +1,76 @@
-import { Card, Container, Typography } from '@material-ui/core'
-import React from 'react'
+import { Card, Container, makeStyles, Typography } from "@material-ui/core";
+import clsx from "clsx";
+import React from "react";
+import { useEffect } from "react";
+import profilePicture from "../assets/DeathValleyPortrait.jpg";
 
-export default function AboutView() {
-    return (
-        <Container maxWidth='md' >
-            <Card>
-                
-            <Typography variant="h1" align="center">
-                Sup
-            </Typography>
-            </Card>
-        </Container>
-    )
+const minWidth = "300px";
+const maxWidth = "800px";
+
+const useStyles = makeStyles((theme) => ({
+  cardStyle: {
+    minWidth: minWidth,
+    maxWidth: maxWidth,
+    margin: "5px auto",
+    backgroundColor: "rgba(255, 255, 255, .2)",
+  },
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  marginBottom: {
+    marginBottom: "5px",
+  },
+  marginTop: {
+    marginTop: "5px",
+  },
+  img: {
+    width: "200px",
+    borderRadius: "5px",
+  },
+  textBox: {
+    width: "95%",
+  },
+}));
+
+export default function AboutView(props) {
+  const classes = useStyles();
+
+  useEffect(() => {
+    props.modifyCurrentView("About");
+  }, [props]);
+
+  return (
+    <Container maxWidth="md">
+      <Card className={clsx(classes.cardStyle, classes.root)}>
+        <Typography
+          align="center"
+          variant="h3"
+          className={clsx(classes.marginTop, classes.marginBottom)}
+        >
+          About Me
+        </Typography>
+      </Card>
+      <Card className={clsx(classes.cardStyle, classes.root)}>
+        <img
+          src={profilePicture}
+          alt="Casey Mockbee in Yellowstone National Park"
+          className={clsx(classes.img, classes.marginTop)}
+        />
+        <img
+          src="https://www.codewars.com/users/caseymockbee97/badges/large"
+          alt="codewars badge"
+        />
+        <div className={classes.textBox}>
+          <Typography
+            align="left"
+            className={clsx(classes.marginTop, classes.marginBottom)}
+          >
+            Casey Mockbee
+          </Typography>
+        </div>
+      </Card>
+    </Container>
+  );
 }

@@ -6,8 +6,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import BookmarksOutlinedIcon from "@material-ui/icons/BookmarksOutlined";
+import DescriptionIcon from "@material-ui/icons/Description";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
@@ -18,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: "auto",
   },
   listItem: {
-      backgroundColor: "#333232"
-  }
+    background: "rgba(255, 255, 255, .2)",
+  },
 }));
 
 export default function SideBarContentsComponent(props) {
@@ -29,35 +31,39 @@ export default function SideBarContentsComponent(props) {
     <div className={props.classes.drawerContainer}>
       <List>
         <Link to="/" className={classes.noStyle}>
-          <ListItem button>
+          <ListItem
+            button
+            className={classes.listItem}
+            selected={props.currentView === "About"}
+          >
             <ListItemIcon>
-              <HomeOutlinedIcon />
+              <AccountCircleOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary={"About"}></ListItemText>
           </ListItem>
         </Link>
-        <Link to="/resume" className={classes.noStyle}>
-          <ListItem button>
+        <Link to="/projects" className={classes.noStyle}>
+          <ListItem
+            button
+            className={classes.listItem}
+            selected={props.currentView === "Projects"}
+          >
             <ListItemIcon>
-              <AccountCircleOutlinedIcon />
+              <WorkOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Projects"} />
+          </ListItem>
+        </Link>
+        <Link to="/resume" className={classes.noStyle}>
+          <ListItem
+            button
+            className={classes.listItem}
+            selected={props.currentView === "Resume"}
+          >
+            <ListItemIcon>
+              <DescriptionIcon />
             </ListItemIcon>
             <ListItemText primary={"Resume"} />
-          </ListItem>
-        </Link>
-        <Link to="/main/saved" className={classes.noStyle}>
-          <ListItem button>
-            <ListItemIcon>
-              <BookmarksOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Saved"} />
-          </ListItem>
-        </Link>
-        <Link to="/main/create" className={classes.noStyle}>
-          <ListItem button>
-            <ListItemIcon>
-              <AddBoxOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Create"} />
           </ListItem>
         </Link>
       </List>
