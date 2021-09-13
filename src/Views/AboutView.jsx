@@ -1,17 +1,7 @@
-import {
-  Card,
-  Container,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Card, Container, makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
 import { useEffect } from "react";
-import profilePicture from "../assets/DeathValleyPortrait.jpg";
 import AboutComponent from "../Components/AboutComponent";
 
 const minWidth = "300px";
