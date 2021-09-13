@@ -1,8 +1,18 @@
-import { Card, Container, makeStyles, Typography } from "@material-ui/core";
+import {
+  Card,
+  Container,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
 import { useEffect } from "react";
 import profilePicture from "../assets/DeathValleyPortrait.jpg";
+import AboutComponent from "../Components/AboutComponent";
 
 const minWidth = "300px";
 const maxWidth = "800px";
@@ -52,25 +62,7 @@ export default function AboutView(props) {
           About Me
         </Typography>
       </Card>
-      <Card className={clsx(classes.cardStyle, classes.root)}>
-        <img
-          src={profilePicture}
-          alt="Casey Mockbee in Yellowstone National Park"
-          className={clsx(classes.img, classes.marginTop)}
-        />
-        <img
-          src="https://www.codewars.com/users/caseymockbee97/badges/large"
-          alt="codewars badge"
-        />
-        <div className={classes.textBox}>
-          <Typography
-            align="left"
-            className={clsx(classes.marginTop, classes.marginBottom)}
-          >
-            Casey Mockbee
-          </Typography>
-        </div>
-      </Card>
+      <AboutComponent classes={classes} />
     </Container>
   );
 }

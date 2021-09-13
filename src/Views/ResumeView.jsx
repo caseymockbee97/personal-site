@@ -4,6 +4,7 @@ import resume from "../assets/Master_Resume_2021.pdf";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 export default function ResumeView(props) {
   const resumeWidth = 600;
@@ -40,12 +41,7 @@ export default function ResumeView(props) {
           marginTop: "5px",
         }}
       >
-        <Document
-          file={resume}
-          onLoadSuccess={onDocumentLoadSuccess}
-          renderMode="svg"
-          width={resumeWidth}
-        >
+        <Document file={resume} onLoadSuccess={onDocumentLoadSuccess}>
           <Page pageNumber={pageNumber} />
         </Document>
       </Card>
