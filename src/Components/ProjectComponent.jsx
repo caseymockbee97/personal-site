@@ -18,17 +18,6 @@ const minWidth = "300px";
 const maxWidth = "800px";
 
 const useStyles = makeStyles((theme) => ({
-  cardStyle: {
-    minWidth: minWidth,
-    maxWidth: maxWidth,
-    margin: "5px auto",
-    backgroundColor: "rgba(255, 255, 255, .2)",
-  },
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
   fullWidth: {
     width: "95%",
   },
@@ -58,11 +47,12 @@ export default function ProjectComponent(props) {
   };
 
   return (
-    <Card className={clsx(classes.cardStyle, classes.root)}>
+    <Card className={clsx(props.classes.cardStyle, props.classes.root)}>
       <Typography
         align="center"
         variant="h4"
         className={clsx(classes.marginTop, classes.marginBottom)}
+        component="h3"
       >
         {props.title}
       </Typography>
@@ -102,6 +92,7 @@ export default function ProjectComponent(props) {
           align="center"
           className={[classes.fullWidth, classes.pointer]}
           noWrap
+          component="h4"
         >
           <ListItem onClick={handleClick}>
             Tech Stack {isOpen ? <ExpandLess /> : <ExpandMore />}

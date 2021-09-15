@@ -17,7 +17,7 @@ export default function AboutComponent(props) {
       <Card className={clsx(classes.cardStyle, classes.root)}>
         <img
           src={profilePicture}
-          alt="Casey Mockbee in Yellowstone National Park"
+          alt="Casey Mockbee in at Badwater Basin in Death Valley National Park."
           className={clsx(classes.img, classes.marginTop)}
         />
         <Typography
@@ -27,11 +27,15 @@ export default function AboutComponent(props) {
         >
           Casey Mockbee
         </Typography>
-        {/* <img
-          src="https://www.codewars.com/users/caseymockbee97/badges/large"
-          alt="codewars badge"
-        /> */}
         <div className={classes.textBox}>
+          <Typography
+            align="left"
+            className={classes.marginTop}
+            variant="h6"
+            component="h3"
+          >
+            Who am I?
+          </Typography>
           <Typography
             align="left"
             className={classes.marginBottom}
@@ -45,7 +49,12 @@ export default function AboutComponent(props) {
             as in teams. When working in teams we utilized Scrum Teams in which
             I have filled the roles of Product Owner and Scrum Master.
           </Typography>
-          <Typography align="left" className={classes.marginTop} variant="h6">
+          <Typography
+            align="left"
+            className={classes.marginTop}
+            variant="h6"
+            component="h3"
+          >
             Technical Skills
           </Typography>
           <Typography
@@ -63,14 +72,19 @@ export default function AboutComponent(props) {
               <ListItem>{"Swift + SwiftUI (basic)"}</ListItem>
             </List>
           </Typography>
-          <Typography align="left" className={classes.marginTop} variant="h6">
+          <Typography
+            align="left"
+            className={classes.marginTop}
+            variant="h6"
+            component="h3"
+          >
             Education
           </Typography>
           <List>
             <ListItem>
               <ListItemText
                 primary={
-                  <Typography align="left" variant="subtitle1">
+                  <Typography align="left" variant="subtitle1" component="h4">
                     Kenzie Academy
                   </Typography>
                 }
@@ -88,7 +102,7 @@ export default function AboutComponent(props) {
             <ListItem>
               <ListItemText
                 primary={
-                  <Typography align="left" variant="subtitle1">
+                  <Typography align="left" variant="subtitle1" component="h4">
                     Purdue University
                   </Typography>
                 }

@@ -1,18 +1,9 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  CssBaseline,
-  Typography,
-  Toolbar,
-  AppBar,
-  Drawer,
-  Container,
-} from "@material-ui/core";
+import { CssBaseline, Toolbar, Drawer } from "@material-ui/core";
 import SideBarContentsComponent from "../Components/SidebarComponet";
-import ResumeView from "./ResumeView";
-import { Route, Switch } from "react-router-dom";
-import AboutView from "./AboutView";
-import ProjectsView from "./ProjectsView";
+import AppBarComponent from "../Components/AppBarComponent";
+import ContentView from "./ContentView";
 
 const drawerWidth = 240;
 
@@ -62,18 +53,7 @@ export default function MainView() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
-        <Toolbar>
-          <Typography
-            variant="h3"
-            noWrap
-            align="center"
-            className={classes.header}
-          >
-            Casey Mockbee
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <AppBarComponent classes={classes} />
 
       <Drawer
         className={classes.drawer}
@@ -86,20 +66,7 @@ export default function MainView() {
         <Toolbar />
         <SideBarContentsComponent classes={classes} currentView={currentView} />
       </Drawer>
-      <Container>
-        <Toolbar />
-        <Switch>
-          <Route exact path="/resume">
-            <ResumeView modifyCurrentView={modifyCurrentView} />
-          </Route>
-          <Route exact path="/projects">
-            <ProjectsView modifyCurrentView={modifyCurrentView} />
-          </Route>
-          <Route exact path="/">
-            <AboutView modifyCurrentView={modifyCurrentView} />
-          </Route>
-        </Switch>
-      </Container>
+      <ContentView modifyCurrentView={modifyCurrentView} />
     </div>
   );
 }

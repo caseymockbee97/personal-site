@@ -46,8 +46,9 @@ export default function AboutView(props) {
       <Card className={clsx(classes.cardStyle, classes.root)}>
         <Typography
           align="center"
-          variant="h3"
+          variant="h4"
           className={clsx(classes.marginTop, classes.marginBottom)}
+          component="h2"
         >
           About Me
         </Typography>
